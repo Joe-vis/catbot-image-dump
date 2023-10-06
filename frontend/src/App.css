@@ -1,38 +1,137 @@
-.App {
-  text-align: center;
+:root {
+  --default-background: #1b1b1b;
+  --text-color: #e6e6e6;
+  --interactible-primary: #34e068;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  background: var(--default-background);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.main {
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+
+  width: 100vw;
+  height: 100vh;
 }
 
-.App-link {
-  color: #61dafb;
-}
+.base {
+  width: 400px;
+  height: 300px;
+  background: #3b3a39;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px;
+  color: var(--text-color);
+  box-shadow: #0c0c0c 3px 4px 3px 2px;
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  > h1 {
+    border-bottom: 2px #e6e6e6 solid;
   }
-  to {
-    transform: rotate(360deg);
+}
+
+.drop-zone-ext{
+  width: 90%;
+  height: 90%;
+  background-color: #3b3a39;
+  border-radius: 15%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.drop-zone{
+  border:  rgb(171, 202, 255) 2px dashed;
+  box-sizing: border-box;
+  border-radius: 15px;
+  width: 90%;
+  height: 90%;
+  background-color: #3b3a39;
+  gap: 10px;
+  margin-bottom: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  .drop-title {
+    font-size: x-large;
+    font-weight: 500;
+  }
+  &.drop-zone:hover {
+    background: rgba(65, 195, 255, 0.464);
+    border-color: rgba(17, 17, 17, 0.616);
+  }
+  &.drop-zone:hover .drop-title{
+    color: rgb(255, 255, 255);
+  }
+
+}
+
+#save-file {
+  width: 300px;
+  max-width: 100%;
+  color: #444;
+  padding: 2px;
+  background: #fff;
+  border-radius: 10px;
+  border: 1px solid rgba(8, 8, 8, 0.288);
+}
+
+#save-file::file-selector-button {
+  margin-right: 20px;
+  border: none;
+  background: #084cdf;
+  padding: 10px 20px;
+  border-radius: 10px;
+  color: #fff;
+  cursor: pointer;
+  transition: background .2s ease-in-out;
+}
+
+#save-file::file-selector-button:hover {
+  background: #0d45a5;
+}
+
+button{
+  min-width: 70px;
+  min-height: 40px;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  margin: 5px;
+  transition: all 200ms;
+
+
+  &.primary{
+    background-color: var(--interactible-primary);
+    border: none;
+  }
+  &.secondary{
+    background-color: transparent;
+    color: var(--interactible-primary);
+    border-color: var(--interactible-primary);
+  }
+  &.trinary{
+    background-color: transparent;
+    border: none;
+    color: var(--interactible-primary);
+  }
+
+  &:hover {
+    filter: brightness(50%);
+    -webkit-filter: brightness(50%);
+  }
+
+  &:active {
+    filter: brightness(20%);
+    -webkit-filter: brightness(20%);
   }
 }
